@@ -1,4 +1,36 @@
-baseURL = "https://kenji-imi.github.io/"
+baseURL = "https://kenji-imi.net/"
 languageCode = "ja"
 title = "My Blog"
 theme = "hugo-lithium-theme"
+
+[author]
+  name = "Kenji Imai"
+
+[taxonomies]
+  tag = "tags"
+
+[params]
+  # Social Icons
+  # Check https://github.com/Track3/hermit#social-icons for more info.
+  [[params.social]]
+    name = "twitter"
+    url = "https://twitter.com/kenji_imi"
+
+  [[params.social]]
+    name = "instagram"
+    url = "https://instagram.com/imaizum"
+
+  [[params.social]]
+    name = "github"
+    url = "https://github.com/kenji-imi"
+
+[menu]
+  [[menu.main]]
+    name = "Posts"
+    url = "posts/"
+    weight = 10
+
+  [[menu.main]]
+    name = "About"
+    url = "about/"
+    weight = 20
