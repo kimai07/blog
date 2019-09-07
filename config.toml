@@ -7,21 +7,21 @@ disqusShortname = ""
 disableKinds = ["taxonomy", "taxonomyTerm", "section", "404"]
 
 [author]
-  name = "Kenji Imai"
+    name = "Kenji Imai"
 
 [permalinks]
     post = "/:year/:month/:day/:title/"
     page = "/:title/"
 
 [[menu.main]]
-    name = "About"
-    url = "/about/"
+    name = "Profile"
+    url = "/profile/"
 [[menu.main]]
     name = "GitHub"
-    url = ""
+    url = "https://github.com/kenji-imi"
 [[menu.main]]
     name = "Twitter"
-    url = ""
+    url = "https://twitter.com/kenji_imi"
 
 [params]
     mainSections = ["post"]
