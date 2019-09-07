@@ -16,12 +16,15 @@ disableKinds = ["taxonomy", "taxonomyTerm", "section", "404"]
 [[menu.main]]
     name = "Profile"
     url = "/profile/"
+    weight = 10
 [[menu.main]]
     name = "GitHub"
     url = "https://github.com/kenji-imi"
+    weight = 20
 [[menu.main]]
     name = "Twitter"
     url = "https://twitter.com/kenji_imi"
+    weight = 30
 
 [params]
     mainSections = ["post"]
