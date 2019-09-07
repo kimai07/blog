@@ -2,30 +2,40 @@ baseURL = "https://kenji-imi.github.io/"
 languageCode = "ja"
 title = "My Blog"
 theme = "hugo-lithium-theme"
+googleAnalytics = ""
+disqusShortname = ""
+disableKinds = ["taxonomy", "taxonomyTerm", "section", "404"]
 
 [author]
   name = "Kenji Imai"
 
-[taxonomies]
-  tag = "tags"
+[permalinks]
+    post = "/:year/:month/:day/:title/"
+    page = "/:title/"
+
+[[menu.main]]
+    name = "About"
+    url = "/about/"
+[[menu.main]]
+    name = "GitHub"
+    url = ""
+[[menu.main]]
+    name = "Twitter"
+    url = ""
 
 [params]
-  # Social Icons
-  # Check https://github.com/Track3/hermit#social-icons for more info.
-  [[params.social]]
-    name = "twitter"
-    url = "https://twitter.com/kenji_imi"
+    mainSections = ["post"]
 
-  [[params.social]]
-    name = "instagram"
-    url = "https://instagram.com/imaizum"
+    description = ""
 
-  [[params.social]]
-    name = "github"
-    url = "https://github.com/kenji-imi"
+    # path to the favicon, under "static"
+    favicon = "favicon.ico"
 
-[menu]
-  [[menu.main]]
-    name = "Profile"
-    url = "profile/"
-    weight = 20
+    [params.logo]
+    url = "logo.png"
+    width = 50
+    height = 50
+    alt = "Logo"
+
+    [params.icon]
+    url = "favicon.ico"
