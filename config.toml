@@ -26,11 +26,6 @@ theme = "hugo-lithium-theme"
 
 [menu]
   [[menu.main]]
-    name = "Posts"
-    url = "posts/"
-    weight = 10
-
-  [[menu.main]]
-    name = "About"
-    url = "about/"
+    name = "Profile"
+    url = "profile/"
     weight = 20
