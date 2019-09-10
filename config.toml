@@ -25,6 +25,10 @@ disableKinds = ["taxonomy", "taxonomyTerm", "section", "404"]
     name = "Twitter"
     url = "https://twitter.com/kenji_imi"
     weight = 30
+[[menu.main]]
+    name = "LinkedIn"
+    url = "https://www.linkedin.com/in/kenji-imai-87a74741/"
+    weight = 40
 
 [params]
     mainSections = ["post"]
