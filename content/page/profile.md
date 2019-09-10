@@ -5,3 +5,18 @@ draft: false
 ---
 
 kenji imai
+
+## 経歴
+
+- フリーランスエンジニア (2016/7 -)
+- ヤフー株式会社 (2007/4 - 2016/6)
+- 明治大学院大学 理工学研究科 基礎理工学専攻 修士 (2005/4 - 2007/3)
+- 明治大学 理工学部 情報科学科 (2001/4 - 2005/3)
+
+## Webサイト
+
+- https://github.com/kenji-imi
+- https://qiita.com/kenji_imi
+- https://twitter.com/kenji_imi
+- https://www.linkedin.com/in/kenji-imai-87a74741/
+
