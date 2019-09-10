@@ -29,5 +29,6 @@ kenji imai
 - https://github.com/kenji-imi
 - https://qiita.com/kenji_imi
 - https://twitter.com/kenji_imi
+- https://connpass.com/user/imaizum_jp/
 - https://www.linkedin.com/in/kenji-imai-87a74741/
 
