@@ -11,10 +11,10 @@ kenji imai
 - フリーランスエンジニア (2016/7 -)
   - 株式会社メルペイ (2018/7 -)
   - 株式会社オプティム (2018/2 - 2018/6)
-    - CIOS ファイルストレージAPI開発改善: [link](https://www.optim.cloud/platform/)
+      - CIOS ファイルストレージAPI開発改善: [link](https://www.optim.cloud/platform/)
   - 株式会社リクルートテクノロジーズ (2016/7 - 2018/1)
-    - TextSuggestAPI開発改善: [link](https://a3rt.recruit-tech.co.jp/product/textSuggestAPI/)
-    - 斡旋・中途採用検索・レコメンドデータ生成
+      - TextSuggestAPI開発改善: [link](https://a3rt.recruit-tech.co.jp/product/textSuggestAPI/)
+      - 斡旋・中途採用検索・レコメンドデータ生成
 - ヤフー株式会社 (2007/4 - 2016/6)
   - 「Y!ショッピング」商品レコメンドエンジン開発改善
   - 「Y!ショッピング」検索クエリ自動補完MLモデリング・API新規開発
