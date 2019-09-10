@@ -26,13 +26,13 @@ disableKinds = ["taxonomy", "taxonomyTerm", "section", "404"]
 [params]
     mainSections = ["post"]
 
-    description = ""
+    description = "Welcome!"
 
     # path to the favicon, under "static"
     favicon = "favicon.ico"
 
     [params.logo]
-    url = "logo.png"
+    url = "ki.png"
     width = 50
     height = 50
     alt = "Logo"
