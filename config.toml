@@ -1,6 +1,6 @@
 baseURL = "https://kenji-imi.github.io/"
 languageCode = "ja"
-title = "My Blog"
+title = "きまいのテックろぐ"
 theme = "hugo-lithium-theme"
 googleAnalytics = ""
 disqusShortname = ""
