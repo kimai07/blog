@@ -1,13 +1,12 @@
 ---
-title: "Docker上でElasticsearchをcurlで操作する"
+title: "Docker上のElasticsearchをcurlで操作する"
 date: 2019-09-18T09:00:00+09:00
 draft: false
 ---
 
 ## 概要
 
-Docker上のElasticsearchをcurlでAPI操作してみます。
-
+Docker 上の Elasticsearch を curl で API 操作してみます。
 
 ## 環境
 
@@ -18,15 +17,15 @@ ProductVersion:	10.14.6
 BuildVersion:	18G87
 ```
 
-## Elasticsearch用docker-compose
+## Elasticsearch 用 docker-compose
 
-今回は、dockerコンテナを起動して、その中でElasticsearchを起動します。
-dockerコンテナを起動するために、docker-composeを利用します。
-Elasticsearch用のDockerイメージやdocker-compose.yml等の情報は以下公式ドキュメントにまとまっています。
+今回は、docker コンテナを起動して、その中で Elasticsearch を起動します。
+docker コンテナを起動するために、docker-compose を利用します。
+Elasticsearch 用の Docker イメージや docker-compose.yml 等の情報は以下公式ドキュメントにまとまっています。
 
 - [Install Elasticsearch with Docker \| Elasticsearch Reference | Elastic](https://www.elastic.co/guide/en/elasticsearch/reference/current/docker.html)
 
-今回用いるdocker-compose.ymlは以下。
+今回用いる docker-compose.yml は以下。
 
 ```yaml
 version: "3.3"
@@ -52,20 +51,19 @@ volumes:
   esdata01:
     driver: local
 
-networks:
-  esnet:
+networks: esnet:
 ```
 
-Dockerコンテナ起動
+Docker コンテナ起動
 
 ```
 $ docker-compose up
 ```
 
-## curlで起動確認
+## curl で起動確認
 
-Elasticsearchが起動されているかどうかcurlで確認します。
-デフォルトでは9200番ポートでAPIを利用。
+Elasticsearch が起動されているかどうか curl で確認します。
+デフォルトでは 9200 番ポートで API を利用。
 
 ```sh
 $ curl localhost:9200
@@ -88,14 +86,13 @@ $ curl localhost:9200
 }
 ```
 
-9200ポート確認
+9200 ポート確認
 
 ```sh
 $ lsof -i:9200
 COMMAND    PID  USER   FD   TYPE             DEVICE SIZE/OFF NODE NAME
 com.docke 1502 user   17u  IPv6 0x3e5fb7c38bbe7217      0t0  TCP *:wap-wsp (LISTEN)
 ```
-
 
 ## インデックス作成
 
@@ -162,7 +159,7 @@ yellow open   product Fz1qlOcwQyS-w0ZvKRmi4g   1   1          0            0    
 ## データ投入
 
 ここでは、ドキュメントが１つも入っていない状態で、新規にドキュメント登録を行います。
-データ登録は `[インデックス名]/[タイプ]/[ドキュメントID]` のように指定することで行うことが出来ます。
+データ登録は `[インデックス名]/[タイプ]/[ドキュメントID]`  のように指定することで行うことが出来ます。
 
 ```sh
 $ curl -H "Content-Type: application/json" -XPUT 'localhost:9200/product/book/1?pretty' -d '
@@ -190,7 +187,7 @@ $ curl -H "Content-Type: application/json" -XPUT 'localhost:9200/product/book/1?
 ## 検索
 
 登録したドキュメントを検索してみます。
-検索は `[インデックス名]/_search` のように指定することで行うことが出来ます。
+検索は `[インデックス名]/_search`  のように指定することで行うことが出来ます。
 検索キーワード・検索対象フィールドは、クエリパラメータとして `q=` の後に `フィールド名:検索キーワード` で指定できます。
 
 ```sh
@@ -227,7 +224,7 @@ $ curl -XGET 'localhost:9200/product/_search?q=title:Elasticsearch&pretty'
 }
 ```
 
-また、 `[インデックス名]/[タイプ]/_search` と指定することで 特定のタイプのドキュメントを検索することが出来ます。
+また、 `[インデックス名]/[タイプ]/_search`  と指定することで 特定のタイプのドキュメントを検索することが出来ます。
 
 ```sh
 $ curl -XGET 'localhost:9200/product/book/_search?q=title:Elasticsearch&pretty'
