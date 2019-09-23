@@ -156,6 +156,13 @@ health status index   uuid                   pri rep docs.count docs.deleted sto
 yellow open   product Fz1qlOcwQyS-w0ZvKRmi4g   1   1          0            0       230b           230b
 ```
 
+APIリファレンス
+
+- [Create index API](https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-create-index.html)
+- [Delete index API](https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-delete-index.html)
+- [cat APIs](https://www.elastic.co/guide/en/elasticsearch/reference/current/cat.html)
+
+
 ## データ投入
 
 ここでは、ドキュメントが１つも入っていない状態で、新規にドキュメント登録を行います。
@@ -183,6 +190,10 @@ $ curl -H "Content-Type: application/json" -XPUT 'localhost:9200/product/book/1?
   "_primary_term" : 1
 }
 ```
+
+APIリファレンス
+
+- [Index API](https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-index_.html)
 
 ## 検索
 
@@ -259,3 +270,189 @@ $ curl -XGET 'localhost:9200/product/book/_search?q=title:Elasticsearch&pretty'
   }
 }
 ```
+
+APIリファレンス
+
+- [Search](https://www.elastic.co/guide/en/elasticsearch/reference/current/search-search.html)
+- [URI Search](https://www.elastic.co/guide/en/elasticsearch/reference/current/search-uri-request.html)
+- 細かく検索条件をしていたい場合は以下を使用する
+  - [Request Body Search](https://www.elastic.co/guide/en/elasticsearch/reference/current/search-request-body.html)
+
+
+## ドキュメント更新
+
+今度はドキュメントIDが1のtitleフィールドを更新します。
+
+```sh
+$ curl -H "Content-Type: application/json" -XPOST 'localhost:9200/product/book/1/_update?pretty' -d '
+{
+  "doc" : {
+      "title" : "Elasticsearch v7.3"
+  }
+}'
+```
+
+更新後もう一度検索してみると、titleフィールドの取得値が更新されていることが確認できます。
+
+```sh
+$ curl -XGET 'localhost:9200/product/_search?q=title:Elasticsearch&pretty'
+{
+  "took" : 7,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 1,
+    "successful" : 1,
+    "skipped" : 0,
+    "failed" : 0
+  },
+  "hits" : {
+    "total" : {
+      "value" : 1,
+      "relation" : "eq"
+    },
+    "max_score" : 0.2876821,
+    "hits" : [
+      {
+        "_index" : "product",
+        "_type" : "book",
+        "_id" : "1",
+        "_score" : 0.2876821,
+        "_source" : {
+          "date" : "2019-09-15T18:19:57+09:00",
+          "title" : "Elasticsearch v7.3",
+          "desc" : "これはElasticsearchに関する商品です"
+        }
+      }
+    ]
+  }
+}
+```
+
+APIリファレンス
+
+- [Update API](https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-update.html)
+- [Update By Query API](https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-update-by-query.html)
+
+
+
+## ドキュメント削除
+
+最後に、更新したドキュメントを削除してみます。
+
+```
+$ curl -XDELETE 'localhost:9200/product/book/1?pretty'
+{
+  "_index" : "product",
+  "_type" : "book",
+  "_id" : "1",
+  "_version" : 4,
+  "result" : "deleted",
+  "_shards" : {
+    "total" : 2,
+    "successful" : 1,
+    "failed" : 0
+  },
+  "_seq_no" : 3,
+  "_primary_term" : 2
+}
+```
+
+削除後にもう一度検索してみると、先程までヒットしていたドキュメントがヒットしなくなり、ドキュメントが正しく削除されていることが確認できます。
+
+```sh
+$ curl -XGET 'localhost:9200/product/_search?q=title:Elasticsearch&pretty'
+{
+  "took" : 713,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 1,
+    "successful" : 1,
+    "skipped" : 0,
+    "failed" : 0
+  },
+  "hits" : {
+    "total" : {
+      "value" : 0,
+      "relation" : "eq"
+    },
+    "max_score" : null,
+    "hits" : [ ]
+  }
+}
+```
+
+APIリファレンス
+
+- [Delete API](https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-delete.html)
+- [Delete by query API](https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-delete-by-query.html)
+
+## エラーメモ
+
+APIリクエストを試す中でエラーとなったケースを列挙していく
+
+#### ドキュメント更新リクエスト
+
+フィールド指定が正しくない場合
+
+```sh
+$ curl -H "Content-Type: application/json" -XPOST 'localhost:9200/product/book/1/_update?pretty' -d '
+{
+  "doc" : {
+      "title" : "Elasticsearch v7.3"
+  }
+}'
+{
+  "error" : {
+    "root_cause" : [
+      {
+        "type" : "x_content_parse_exception",
+        "reason" : "[1:2] [UpdateRequest] unknown field [title], parser not found"
+      }
+    ],
+    "type" : "x_content_parse_exception",
+    "reason" : "[1:2] [UpdateRequest] unknown field [title], parser not found"
+  },
+  "status" : 400
+}
+```
+
+titleフィールドの指定で、 title文字列を `"` で囲まなかった場合
+
+```sh
+$ curl -H "Content-Type: application/json" -XPOST 'localhost:9200/product/book/1/_update?pretty' -d '
+{
+  "doc" : {
+      "title" : "Elasticsearch v7.3"
+  }
+}'
+{
+  "error" : {
+    "root_cause" : [
+      {
+        "type" : "json_parse_exception",
+        "reason" : "Unexpected character ('t' (code 116)): was expecting double-quote to start field name\n at [Source: org.elasticsearch.transport.netty4.ByteBufStreamInput@3abb9f17; line: 1, column: 3]"
+      }
+    ],
+    "type" : "json_parse_exception",
+    "reason" : "Unexpected character ('t' (code 116)): was expecting double-quote to start field name\n at [Source: org.elasticsearch.transport.netty4.ByteBufStreamInput@3abb9f17; line: 1, column: 3]"
+  },
+  "status" : 500
+}
+```
+
+POSTではなくPUTでリクエストしてしまった場合
+
+```sh
+$ curl -H "Content-Type: application/json" -XPUT 'localhost:9200/product/book/1/_update?pretty' -d '
+{
+  "doc" : {
+      "title" : "Elasticsearch v7.3"
+  }
+}'
+{
+  "error" : "Incorrect HTTP method for uri [/product/book/1/_update?pretty] and method [PUT], allowed: [POST]",
+  "status" : 405
+}
+```
+
+
