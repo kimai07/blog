@@ -8,7 +8,7 @@ kenji imai
 
 ## 経歴
 
-- フリーランスエンジニア (2016/7 -)
+- フリーランスバックエンドエンジニア (2016/7 -)
   - 株式会社メルペイ (2018/7 -)
   - 株式会社オプティム (2018/2 - 2018/6)
       - CIOS ファイルストレージ API 開発改善: [link](https://www.optim.cloud/platform/)
@@ -33,8 +33,8 @@ kenji imai
 ## Web サイト
 
 - https://github.com/kenji-imi
-- https://qiita.com/kenji_imi
-- https://twitter.com/kenji_imi
+- https://qiita.com/kimai007
+- https://twitter.com/kimai007
 - https://connpass.com/user/imaizum_jp/
 - https://www.linkedin.com/in/kenji-imai-87a74741/
 
