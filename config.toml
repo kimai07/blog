@@ -1,6 +1,6 @@
 baseURL = "https://kenji-imi.github.io/"
 languageCode = "ja"
-title = "きまいのテックろぐ"
+title = "きまいボックス"
 theme = "hugo-lithium-theme"
 googleAnalytics = ""
 disqusShortname = ""
