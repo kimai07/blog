@@ -14,9 +14,10 @@ kenji imai
       - 加盟店管理画面: [link](https://partner-support.merpay.com/hc/ja/categories/360001340491)
       - 近くで使えるお店: [link(design用しか見つからず..)](https://note.com/mercari_design/n/nee562c61e1b7)
       - スマート払い(後払い)/定額払い: [link](https://www.mercari.com/jp/help_center/category/693/)
-      - システム構成参考: [link](https://engineering.mercari.com/en/blog/entry/2019-06-06-160120/), [link](https://cloud.google.com/blog/ja/topics/customers/merpay-cloud-spanner-google-kubernetes-engine)
+      - システム構成参考資料: [link](https://engineering.mercari.com/en/blog/entry/2019-06-06-160120/), [link](https://cloud.google.com/blog/ja/topics/customers/merpay-cloud-spanner-google-kubernetes-engine)
   - 株式会社オプティム (2018/2 - 2018/6)
       - CIOS ファイルストレージ API 開発改善: [link](https://www.optim.cloud/platform/)
+      - 参考資料: [link](https://speakerdeck.com/optim/openid-connect-to-zhou-bian-ji-shu-falsehuo-yong-shi-li), [OPTiM Store API Docs](https://optim-corp.github.io/optim_store_api_docs/)
   - 株式会社リクルートテクノロジーズ (2016/7 - 2018/1)
       - TextSuggestAPI 開発改善: [link](https://a3rt.recruit-tech.co.jp/product/textSuggestAPI/)
       - 斡旋・中途採用検索・レコメンドデータ生成
