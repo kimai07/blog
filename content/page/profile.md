@@ -38,9 +38,9 @@ kenji imai
 
 ## Web サイト
 
-- https://github.com/kenji-imi
-- https://qiita.com/kimai007
-- https://twitter.com/kimai007
+- https://github.com/kimai07
+- https://qiita.com/kimai07
+- https://twitter.com/kimai07
 - https://connpass.com/user/imaizum_jp/
 - https://www.linkedin.com/in/kenji-imai-87a74741/
 - https://kimai007.hatenablog.com/
