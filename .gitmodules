@@ -6,4 +6,4 @@
 	url = git@github.com:jrutheiser/hugo-lithium-theme.git
 [submodule "public"]
 	path = public
-	url = git@github.com:kimai07/kimai07.github.io.git/public
+	url = git@github.com:kimai07/kimai07.github.io.git
