@@ -43,4 +43,4 @@ kenji imai
 - https://twitter.com/kimai07
 - https://connpass.com/user/imaizum_jp/
 - https://www.linkedin.com/in/kenji-imai-87a74741/
-- https://kimai007.hatenablog.com/
+- https://kimai07.hatenablog.com/
