@@ -1,6 +1,6 @@
 baseURL = "https://kimai07.github.io/"
 languageCode = "ja"
-title = "きまいボックス"
+title = "いまろぐ"
 theme = "hugo-lithium-theme"
 googleAnalytics = ""
 disqusShortname = ""
